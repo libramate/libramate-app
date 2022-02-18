@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import NavBar from "./common/NavBar/NavBar";
 import Library from "./pages/Library/library";
-import Scanner from "./pages/Scan/Scanner";
 
 export default function App() {
   return (
@@ -13,7 +12,7 @@ export default function App() {
           <Fragment>
             <Routes>
               <Route path="/" element={<Library />} />
-              <Route path="/scan" element={<Scanner />} />
+              <Route path="/library" element={<Library />} />
             </Routes>
           </Fragment>
         </div>

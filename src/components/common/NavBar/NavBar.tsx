@@ -1,5 +1,5 @@
 import { BarcodeScanner24Filled, Book24Regular } from "@fluentui/react-icons";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./NavBar.scss";
 
 interface IconButtonProps {
@@ -9,23 +9,24 @@ interface IconButtonProps {
 }
 
 function IconButton(props: IconButtonProps) {
+  const navigate = useNavigate();
+
   return (
-    <Link to={`/${props.link}`}>
-      <button className="btn-icon btn-link">
-        {props.icon}
-        <div>{props.label}</div>
-      </button>
-    </Link>
+    <button
+      className="btn-icon btn-link"
+      onClick={() => navigate(`/${props.link}`)}
+    >
+      {props.icon}
+      <div>{props.label}</div>
+    </button>
   );
 }
 
 function ScanButton() {
   return (
-    <Link to="scan">
-      <button className="btn-scan btn-link">
-        <BarcodeScanner24Filled />
-      </button>
-    </Link>
+    <button className="btn-scan btn-link">
+      <BarcodeScanner24Filled />
+    </button>
   );
 }
 

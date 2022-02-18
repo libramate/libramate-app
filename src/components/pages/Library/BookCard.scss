@@ -1,0 +1,30 @@
+@use "../../../styles/abstracts/constants";
+@use "../../../styles/abstracts/shadows";
+
+.book-card {
+  background: var(--color-bg-elevation-1);
+  border-radius: constants.$border-radius;
+  overflow: clip;
+  border: 1px solid var(--color-border);
+  @include shadows.shadow-elevation-1;
+}
+
+.book-card-loading {
+  @media (prefers-reduced-motion: no-preference) {
+    animation-name: card-loading-animation;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.9, 0.03, 0.69, 0.22);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  counter-increment: index-booklist;
+}
+
+@keyframes card-loading-animation {
+  from {
+    background: var(--color-bg-elevation-1);
+  }
+  to {
+    background: var(--color-bg-elevation-1-dark);
+  }
+}
