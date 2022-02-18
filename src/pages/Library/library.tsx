@@ -3,7 +3,20 @@ import BookCard from "./BookCard";
 import "./library.scss";
 
 export default function Library() {
-  let booklist = [<BookCard />, <BookCard />, <BookCard />, <BookCard />];
+  let booklist = [
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+    <BookCard />,
+  ];
   return (
     <div id="library">
       <h1>My Library</h1>
