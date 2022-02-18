@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import NavBar from "./common/NavBar/NavBar";
+import NavBar from "./components/common/NavBar/NavBar";
 import Library from "./pages/Library/library";
 
 export default function App() {
