@@ -1,10 +1,22 @@
-import * as React from "react";
-import { InputPanel } from "./common/InputPanel/InputPanel";
-
+import { Fragment } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
+import NavBar from "./common/NavBar/NavBar";
+import Library from "./pages/Library/library";
 
-export class App extends React.Component {
-  render() {
-    return <InputPanel />;
-  }
+export default function App() {
+  return (
+    <>
+      <div id="main-content">
+        <BrowserRouter>
+          <Fragment>
+            <Routes>
+              <Route path="/" element={<Library />} />
+            </Routes>
+          </Fragment>
+        </BrowserRouter>
+      </div>
+      <NavBar></NavBar>
+    </>
+  );
 }
