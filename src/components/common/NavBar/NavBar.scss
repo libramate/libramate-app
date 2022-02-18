@@ -3,3 +3,17 @@
   display: flex;
   justify-content: space-around;
 }
+
+.btn-icon {
+  margin: 0.5rem;
+}
+
+.btn-link {
+  background-color: transparent;
+  border: none;
+}
+
+.btn-scan {
+  border-radius: 50%;
+  background-color: red;
+}
