@@ -1,5 +1,4 @@
 import { Book24Regular } from "@fluentui/react-icons";
-import { Link } from "react-router-dom";
 import "./NavBar.scss";
 
 interface IconButtonProps {
@@ -10,12 +9,10 @@ interface IconButtonProps {
 
 function IconButton(props: IconButtonProps) {
   return (
-    <Link to={`/${props.link}`}>
-      <button className="btn-icon" onClick={(event) => {}}>
-        {props.icon}
-        <p>{props.label}</p>
-      </button>
-    </Link>
+    <button className="btn-icon">
+      {props.icon}
+      <p>{props.label}</p>
+    </button>
   );
 }
 
