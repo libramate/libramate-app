@@ -25,7 +25,7 @@ function IconButton(props: IconButtonProps) {
 function ScanButton() {
   const navigate = useNavigate();
   return (
-    <button className="btn-scan btn-link" onClick={() => navigate("/scan")}>
+    <button className="btn-scan btn-link" onClick={() => navigate("/scanner")}>
       <BarcodeScanner24Filled />
     </button>
   );
