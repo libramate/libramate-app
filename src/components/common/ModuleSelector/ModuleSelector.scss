@@ -1,0 +1,43 @@
+@use "../../../styles/abstracts/constants";
+@use "../../../styles/abstracts/shadows";
+
+#module-selector {
+  border-radius: constants.$border-radius constants.$border-radius 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  // gap: 1rem;
+  padding: 0 0.5rem;
+
+  background: var(--color-bg);
+  // background: blue;
+
+  @include shadows.shadow-elevation-1;
+}
+
+.btn-module-select {
+  background: transparent;
+  // background: red;
+  border: none;
+  color: var(--color-font);
+  padding: 0.5rem 0;
+}
+
+@media screen {
+  //Hover Media query
+  .btn-module-select:hover {
+    background: var(--color-btn-hover);
+  }
+}
+.btn-module-select:focus {
+  background: var(--color-btn-hover);
+}
+
+.btn-module-select p {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+.btn-module-select svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
