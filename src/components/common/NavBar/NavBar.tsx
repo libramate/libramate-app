@@ -23,8 +23,9 @@ function IconButton(props: IconButtonProps) {
 }
 
 function ScanButton() {
+  const navigate = useNavigate();
   return (
-    <button className="btn-scan btn-link">
+    <button className="btn-scan btn-link" onClick={() => navigate("/scan")}>
       <BarcodeScanner24Filled />
     </button>
   );
@@ -41,7 +42,7 @@ export default function NavBar() {
       <IconButton
         icon={<Book24Regular color="var(--color-font)" />}
         label="Library"
-        link="library"
+        link="aaa"
       />
       <ScanButton />
       <IconButton
