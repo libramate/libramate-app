@@ -1,3 +1,4 @@
+import NotFound from "./pages/Errors/NotFound";
 import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
@@ -74,6 +75,7 @@ export default function App() {
               path="/profile"
               element={<NavSite element={<Account />} />}
             />
+            <Route path="/*" element={<NavSite element={<NotFound />} />} />
           </Routes>
         </Fragment>
       </BrowserRouter>
