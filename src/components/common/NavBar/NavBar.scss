@@ -1,6 +1,7 @@
 @use "../../../styles/abstracts/shadows";
 
 #navbar {
+  background: var(--color-bg);
   display: grid;
   grid-template-columns: repeat(5, 20vw);
   grid-template-rows: 4rem;

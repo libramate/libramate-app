@@ -9,7 +9,7 @@ import {
   Settings24Regular,
 } from "@fluentui/react-icons";
 import { ReactElement } from "react";
-import { matchPath, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.scss";
 
 interface IconButtonProps {
@@ -66,7 +66,9 @@ function ProfileButton() {
 }
 
 export default function NavBar() {
-  return (
+  const location = useLocation();
+
+  return location.pathname !== "/scan" ? (
     <nav id="navbar">
       <IconButton
         icon={<Book24Regular color="var(--color-font)" />}
@@ -89,5 +91,7 @@ export default function NavBar() {
         link="settings"
       />
     </nav>
+  ) : (
+    <></>
   );
 }
