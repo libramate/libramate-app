@@ -66,9 +66,7 @@ function ProfileButton() {
 }
 
 export default function NavBar() {
-  const location = useLocation();
-
-  return location.pathname !== "/scan" ? (
+  return (
     <nav id="navbar">
       <IconButton
         icon={<Book24Regular color="var(--color-font)" />}
@@ -91,7 +89,5 @@ export default function NavBar() {
         link="settings"
       />
     </nav>
-  ) : (
-    <></>
   );
 }

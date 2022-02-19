@@ -1,0 +1,34 @@
+#splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logo-wrapper {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 37, 145, 1) 0%,
+    rgba(0, 18, 69, 1) 100%
+  );
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-server {
+  border: none;
+  border-radius: 20px;
+  width: 300px;
+  height: 52px;
+  font-size: large;
+}
+
+.btn-main-server {
+  background-color: var(--color-accent);
+}
+
+.shape-fill {
+  fill: rgba(0, 18, 69, 1);
+}
