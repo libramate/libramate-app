@@ -236,14 +236,26 @@
     transform: rotateY(0deg);
   }
 }
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
 
-body .dribbble {
+* {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.dribbble {
   position: fixed;
   display: block;
   right: 24px;
   bottom: 24px;
 }
-body .dribbble img {
+.dribbble img {
   display: block;
   width: 76px;
 }

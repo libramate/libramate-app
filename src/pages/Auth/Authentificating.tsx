@@ -7,10 +7,17 @@ export default function Authentificating() {
   const code = location.search.split("=")[1];
 
   setTimeout(() => {
-    navigate("/library");
+    // navigate("/library");
   }, 5000);
   return (
-    <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
+      }}
+    >
       <Loading />
     </div>
   );
