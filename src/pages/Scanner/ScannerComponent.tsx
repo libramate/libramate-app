@@ -10,7 +10,8 @@ export default function BarcodeScanner(): JSX.Element {
   const unknownLimit = 10;
 
   const handleData = function (data: QuaggaJSResultObject) {
-    console.log(data);
+    // TODO query backend to find out whether to create or whatever the book
+    navigate(`/books/create?isbn=${data.codeResult.code}`);
   };
 
   return (

@@ -5,10 +5,9 @@ import Input from "../../components/common/Input/Input";
 export default function CreateBook() {
   const location = useLocation();
   const isbn = location.search.split("=")[1];
-  console.log(location.search);
   return (
     <div>
-      <Input title="isbn" />
+      <Input title="isbn" value={isbn} readOnly={true} />
       <Input title="Title" />
       <Input title="Author" />
       <Input title="Publisher" />
