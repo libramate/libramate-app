@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../../../public/ic_fluent_sticker_24_regular.svg";
+import Logo from "../../../public/Logo.svg";
 import "./Splash.scss";
 
 export default function Splash() {
