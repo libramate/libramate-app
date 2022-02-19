@@ -7,9 +7,10 @@ function AuthButton(props: { img: JSX.Element; name: string; url: string }) {
       onClick={() => {
         window.location.href = props.url;
       }}
+      className="btn-auth-provider"
     >
       {props.img()}
-      <div>{props.name}</div>
+      <span>{props.name}</span>
     </button>
   );
 }
@@ -17,11 +18,14 @@ function AuthButton(props: { img: JSX.Element; name: string; url: string }) {
 export default function ChooseAuthProvider() {
   return (
     <div id="choose-auth">
-      <AuthButton
-        img={GitHub}
-        name="GitHub"
-        url="https://github.com/login/oauth/authorize?client_id=16fd856fbe6f3d9bfcc5&scope=read:user"
-      />
+      <h1>Choose Authentication Provider</h1>
+      <div id="list-auth-providers">
+        <AuthButton
+          img={GitHub}
+          name="GitHub"
+          url="https://github.com/login/oauth/authorize?client_id=16fd856fbe6f3d9bfcc5&scope=read:user"
+        />
+      </div>
     </div>
   );
 }

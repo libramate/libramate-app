@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Logo from "../../../public/Logo.svg";
+import Logo from "../../../public/logo";
 import "./Splash.scss";
 
 export default function Splash() {
@@ -21,14 +21,16 @@ export default function Splash() {
           </g>
         </svg>
       </div>
-      <p>Log In</p>
-      <button
-        className="btn-server btn-main-server"
-        onClick={() => navigate("/login")}
-      >
-        Use libramate.de
-      </button>
-      <button className="btn-server">Use custom server</button>
+      <div id="login-selection">
+        <h1>Log In</h1>
+        <button
+          className="btn-server btn-main-server"
+          onClick={() => navigate("/login")}
+        >
+          Use libramate.de
+        </button>
+        <button className="btn-server">Use custom server</button>
+      </div>
     </div>
   );
 }

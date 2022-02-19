@@ -1,4 +1,4 @@
-import "./Loading.scss";
+import "./Loading.module.scss";
 
 export default function Loading() {
   return (
