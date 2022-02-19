@@ -8,6 +8,8 @@
   align-items: end;
   flex: none;
   @include shadows.shadow-elevation-2;
+  position: relative;
+  z-index: 1;
 }
 
 .btn-link {
