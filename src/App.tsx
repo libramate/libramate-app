@@ -14,6 +14,7 @@ import ReturnBook from "./pages/Books/ReturnBook";
 import Library from "./pages/Library/library";
 import BarcodeScanner from "./pages/Scanner/ScannerComponent";
 import Settings from "./pages/Settings/Settings";
+import AuthAccessDenied from "./pages/Errors/AuthAccessDenied";
 
 function NavSite(props: { element: JSX.Element }) {
   return (
@@ -50,6 +51,10 @@ export default function App() {
             <Route
               path="/auth/callback"
               element={<NavlessSite element={<Authentificating />} />}
+            />
+            <Route
+              path="/auth/accessDenied"
+              element={<NavlessSite element={<AuthAccessDenied />} />}
             />
             <Route
               path="/books/create"

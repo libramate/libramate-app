@@ -19,7 +19,8 @@
   margin-top: 4rem;
   width: 100%;
   display: grid;
-  grid-auto-rows: 3rem;
+  grid-auto-rows: 5rem;
+  overflow: scroll;
 }
 
 .btn-auth-provider {
@@ -32,6 +33,7 @@
   align-items: center;
   padding: 0 1rem;
   font-size: 1.2rem;
+  margin-bottom: 2rem;
   @include shadows.shadow-elevation-1;
 }
 

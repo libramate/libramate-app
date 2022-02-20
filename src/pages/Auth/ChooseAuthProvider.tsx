@@ -1,7 +1,12 @@
+import { Provider, useEffect, useState } from "react";
+import { useNavigate, useNavigationType } from "react-router-dom";
+import AuthProviderService, {
+  AuthProvider,
+} from "../../services/AuthProviderService";
 import GitHub from "../../../public/github.svg";
 import "./ChooseAuthProvider.scss";
 
-function AuthButton(props: { img: JSX.Element; name: string; url: string }) {
+function AuthButton(props: AuthProvider) {
   return (
     <button
       onClick={() => {
@@ -9,22 +14,45 @@ function AuthButton(props: { img: JSX.Element; name: string; url: string }) {
       }}
       className="btn-auth-provider"
     >
-      {props.img()}
+      <img src={props.img}></img>
       <span>{props.name}</span>
     </button>
   );
 }
 
+function BackButton() {
+  const navigate = useNavigate();
+  return (
+    <button
+      onClick={() => {
+        navigate(-1);
+      }}
+      className="btn-auth-provider"
+    >
+      <span>Back</span>
+    </button>
+  );
+}
+
 export default function ChooseAuthProvider() {
+  const [state, setState] = useState<{ providers: AuthProvider[] }>({
+    providers: [],
+  });
+
+  useEffect(() => {
+    AuthProviderService.getAuthProviders("").then((providers) =>
+      setState({ providers })
+    );
+  });
+
   return (
     <div id="choose-auth">
       <h1>Choose Authentication Provider</h1>
       <div id="list-auth-providers">
-        <AuthButton
-          img={GitHub}
-          name="GitHub"
-          url="https://github.com/login/oauth/authorize?client_id=16fd856fbe6f3d9bfcc5&scope=read:user"
-        />
+        {state.providers.map((provider) => (
+          <AuthButton key={provider.id} {...provider} />
+        ))}
+        <BackButton />
       </div>
     </div>
   );
