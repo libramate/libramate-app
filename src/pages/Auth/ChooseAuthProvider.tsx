@@ -1,9 +1,8 @@
-import { Provider, useEffect, useState } from "react";
-import { useNavigate, useNavigationType } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthProviderService, {
   AuthProvider,
 } from "../../services/AuthProviderService";
-import GitHub from "../../../public/github.svg";
 import "./ChooseAuthProvider.scss";
 
 function AuthButton(props: AuthProvider) {
@@ -25,7 +24,7 @@ function BackButton() {
   return (
     <button
       onClick={() => {
-        navigate(-1);
+        navigate("/");
       }}
       className="btn-auth-provider"
     >

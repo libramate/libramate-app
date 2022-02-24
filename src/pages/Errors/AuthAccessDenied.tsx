@@ -1,16 +1,14 @@
-import { ShieldError24Regular } from "@fluentui/react-icons";
-import { useNavigate } from "react-router-dom";
-import "./AuthAccessDenied.scss";
+import { ShieldErrorFilled } from "@fluentui/react-icons";
+import GenericError, { GenericErrorProps } from "./GenericError";
 
 export default function AuthAccessDenied() {
-  const navigate = useNavigate();
+  const errorProps: GenericErrorProps = {
+    title: "Access Denied",
+    message: "Please try authentificating again.",
+    buttonNavigateTo: "/login",
+    buttonText: "Back",
+    icon: <ShieldErrorFilled />,
+  };
 
-  return (
-    <div id="auth-access-denied">
-      <ShieldError24Regular />
-      <h1>Access Denied</h1>
-      <p>Please try authentificating again.</p>
-      <button onClick={() => navigate("/login")}>Back</button>
-    </div>
-  );
+  return <GenericError {...errorProps} />;
 }

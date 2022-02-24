@@ -1,0 +1,28 @@
+@use "../../styles/abstracts/constants";
+@use "../../styles/abstracts/shadows";
+
+#generic-error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+
+  svg {
+    font-size: 6rem;
+    color: #e01f22;
+  }
+
+  button {
+    background-color: var(--color-accent);
+    display: flex;
+    border: 1px solid var(--color-border);
+    border-radius: constants.$border-radius;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    @include shadows.shadow-elevation-1;
+  }
+}
