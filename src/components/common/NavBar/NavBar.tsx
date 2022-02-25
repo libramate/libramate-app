@@ -23,7 +23,7 @@ function IconButton(props: IconButtonProps): JSX.Element {
   const location: Partial<Location> = useLocation();
 
   let icon: React.ReactElement;
-  if (location.pathname!.startsWith(`/${props.link}`)) {
+  if (location.pathname?.startsWith(`/${props.link}`)) {
     icon = props.iconActive;
   } else {
     icon = props.icon;

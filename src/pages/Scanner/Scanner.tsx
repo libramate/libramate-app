@@ -1,7 +1,13 @@
-import Quagga, { QuaggaJSResultCallbackFunction } from "@ericblade/quagga2";
+import Quagga, {
+  QuaggaJSResultCallbackFunction,
+  QuaggaJSResultObject,
+} from "@ericblade/quagga2";
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { NoPermissionsModal } from "./NoPermissionsModal";
 import "./Scanner.scss";
+
+const frequency = 30;
+const lineWidth = 2;
 
 const Scanner = ({
   onUpdate,
@@ -28,27 +34,27 @@ const Scanner = ({
       patchSize: "medium",
       halfSample: true,
     },
-    frequency: 30,
+    frequency,
     decoder: {
       readers: ["ean_reader"],
     },
     locate: true,
   };
   useEffect(() => {
-    Quagga.init(quaggaConfig, (err) => {
+    void Quagga.init(quaggaConfig, (err: object) => {
       if (err) {
         setShowModal(true);
       }
       try {
         Quagga.start();
       } catch (e) {
-        console.log("err", e);
+        console.error("err", e);
       }
     });
 
-    Quagga.onProcessed((result) => {
-      const drawingCtx = Quagga.canvas.ctx.overlay,
-        drawingCanvas = Quagga.canvas.dom.overlay;
+    Quagga.onProcessed((result: QuaggaJSResultObject) => {
+      const drawingCtx = Quagga.canvas.ctx.overlay;
+      const drawingCanvas = Quagga.canvas.dom.overlay;
 
       if (result) {
         if (result.boxes) {
@@ -73,7 +79,7 @@ const Scanner = ({
         if (result.box) {
           Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, {
             color: "blue",
-            lineWidth: 2,
+            lineWidth,
           });
         }
       }
@@ -81,7 +87,7 @@ const Scanner = ({
 
     Quagga.onDetected(onUpdate);
     return () => {
-      Quagga.stop();
+      void Quagga.stop();
     };
   }, [quaggaConfig]);
 

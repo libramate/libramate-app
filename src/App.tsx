@@ -13,10 +13,10 @@ import LendBook from "./pages/Books/LendBook";
 import ReturnBook from "./pages/Books/ReturnBook";
 import Library from "./pages/Library/Library";
 import BarcodeScanner from "./pages/Scanner/ScannerComponent";
-import Settings from "./pages/Settings/Settings";
+import SettingsPage from "./pages/Settings/Settings";
 import AuthAccessDenied from "./pages/Errors/AuthAccessDenied";
 
-function NavSite(props: { element: JSX.Element }) {
+function NavSite(props: { element: JSX.Element }): JSX.Element {
   return (
     <>
       <div id="main-content">{props.element}</div>
@@ -25,11 +25,11 @@ function NavSite(props: { element: JSX.Element }) {
   );
 }
 
-function NavlessSite(props: { element: JSX.Element }) {
+function NavlessSite(props: { element: JSX.Element }): JSX.Element {
   return <div id="main-content">{props.element}</div>;
 }
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <>
       <BrowserRouter>
@@ -74,7 +74,7 @@ export default function App() {
             />
             <Route
               path="/settings"
-              element={<NavSite element={<Settings />} />}
+              element={<NavSite element={<SettingsPage />} />}
             />
             <Route
               path="/profile"

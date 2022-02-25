@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AuthProviderService, {
+import {
   AuthProvider,
+  AuthProviderService,
 } from "../../services/AuthProviderService";
 import "./ChooseAuthProvider.scss";
 
-function AuthButton(props: AuthProvider) {
+function AuthButton(props: AuthProvider): JSX.Element {
   return (
     <button
-      onClick={() => {
+      onClick={(): void => {
         window.location.href = props.url;
       }}
       className="btn-auth-provider"
@@ -19,11 +20,11 @@ function AuthButton(props: AuthProvider) {
   );
 }
 
-function BackButton() {
+function BackButton(): JSX.Element {
   const navigate = useNavigate();
   return (
     <button
-      onClick={() => {
+      onClick={(): void => {
         navigate("/");
       }}
       className="btn-auth-provider"
@@ -33,14 +34,14 @@ function BackButton() {
   );
 }
 
-export default function ChooseAuthProvider() {
+export default function ChooseAuthProvider(): JSX.Element {
   const [state, setState] = useState<{ providers: AuthProvider[] }>({
     providers: [],
   });
 
-  useEffect(() => {
-    AuthProviderService.getAuthProviders("").then((providers) =>
-      setState({ providers })
+  useEffect((): void => {
+    void AuthProviderService.getAuthProviders("").then(
+      (providers: AuthProvider[]) => setState({ providers })
     );
   });
 
@@ -48,7 +49,7 @@ export default function ChooseAuthProvider() {
     <div id="choose-auth">
       <h1>Choose Authentication Provider</h1>
       <div id="list-auth-providers">
-        {state.providers.map((provider) => (
+        {state.providers.map((provider: AuthProvider) => (
           <AuthButton key={provider.id} {...provider} />
         ))}
         <BackButton />

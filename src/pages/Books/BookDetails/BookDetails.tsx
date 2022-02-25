@@ -2,7 +2,7 @@ import { ArrowLeft24Regular, Edit24Regular } from "@fluentui/react-icons";
 import "./BookDetails.scss";
 
 interface propsBookDetails {
-  // bookTitle: String;
+  bookTitle: string;
 }
 
 export default function BookDetails(props: propsBookDetails): JSX.Element {

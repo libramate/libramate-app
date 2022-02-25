@@ -1,7 +1,7 @@
 import { ShieldErrorFilled } from "@fluentui/react-icons";
 import GenericError, { GenericErrorProps } from "./GenericError";
 
-export default function AuthAccessDenied() {
+export default function AuthAccessDenied(): JSX.Element {
   const errorProps: GenericErrorProps = {
     title: "Access Denied",
     message: "Please try authentificating again.",

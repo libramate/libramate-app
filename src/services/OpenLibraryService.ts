@@ -7,8 +7,8 @@ interface Book {
   resolvedAuthors: Author[];
 }
 
-const OpenLibraryService = {
-  getBook: async function (isbn: string): Promise<Book> {
+class OpenLibraryService {
+  public async getBook(isbn: string): Promise<Book> {
     const response: Response = await fetch(
       `https://openlibrary.org/isbn/${isbn}.json`
     );
@@ -23,13 +23,13 @@ const OpenLibraryService = {
     book.resolvedAuthors = authors as Author[];
 
     return book;
-  },
+  }
 
-  getAuthor: function (author: string): Promise<Author> {
+  private getAuthor(author: string): Promise<Author> {
     return fetch(`https://openlibrary.org/authors/${author}.json`).then(
-      (response) => response.json()
-    );
-  },
-};
+      (response: Response) => response.json()
+    ) as Promise<Author>;
+  }
+}
 
 export default OpenLibraryService;

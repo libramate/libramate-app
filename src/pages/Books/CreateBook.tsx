@@ -1,8 +1,8 @@
 import { Save24Regular } from "@fluentui/react-icons";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Input from "../../components/common/Input/Input";
 
-export default function CreateBook() {
+export default function CreateBook(): JSX.Element {
   const [searchParams] = useSearchParams();
   const isbn = searchParams.get("isbn") || "";
   return (

@@ -10,7 +10,7 @@ export interface GenericErrorProps {
   buttonNavigateTo?: string;
 }
 
-export default function GenericError(props: GenericErrorProps) {
+export default function GenericError(props: GenericErrorProps): JSX.Element {
   const navigate = useNavigate();
 
   return (
@@ -20,7 +20,7 @@ export default function GenericError(props: GenericErrorProps) {
         <h1>{props.title}</h1>
         <p>{props.message}</p>
       </div>
-      <button onClick={() => navigate(props.buttonNavigateTo || "/")}>
+      <button onClick={(): void => navigate(props.buttonNavigateTo || "/")}>
         {props.buttonText || "Back"}
       </button>
     </div>

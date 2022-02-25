@@ -1,3 +1,3 @@
-export default function ReturnBook() {
+export default function ReturnBook(): JSX.Element {
   return <>Return Book</>;
 }

@@ -1,6 +1,6 @@
 import "./Loading.scss";
 
-export default function Loading() {
+export default function Loading(): JSX.Element {
   return (
     <div className="loader">
       <div>

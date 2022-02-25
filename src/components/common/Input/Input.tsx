@@ -5,7 +5,7 @@ export default function Input(props: {
   value?: string;
   type?: string;
   readOnly?: boolean;
-}) {
+}): JSX.Element {
   return (
     <>
       <div>{props.title}</div>

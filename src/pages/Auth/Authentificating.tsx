@@ -1,13 +1,19 @@
 import { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  NavigateFunction,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import Loading from "../../components/common/Loading/Loading";
 
-export default function Authentificating() {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
+const timeout = 5000;
 
-  const error = searchParams.get("error");
-  const code = searchParams.get("code");
+export default function Authentificating(): JSX.Element {
+  const [searchParams] = useSearchParams();
+  const navigate: NavigateFunction = useNavigate();
+
+  const error: string | null = searchParams.get("error");
+  const code: string | null = searchParams.get("code");
 
   useEffect(() => {
     if (error) {
@@ -15,7 +21,7 @@ export default function Authentificating() {
     }
     setTimeout(() => {
       navigate("/library");
-    }, 5000);
+    }, timeout);
   });
 
   return (

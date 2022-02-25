@@ -5,13 +5,15 @@ import ScannerControls from "./ScannerControls";
 
 export default function BarcodeScanner(): JSX.Element {
   const navigate = useNavigate();
-  let eanCount: Record<string, number> = {};
-  let active = true;
+  const eanCount: Record<string, number> = {};
+  const active = true;
   const unknownLimit = 10;
 
-  const handleData = function (data: QuaggaJSResultObject) {
-    // TODO query backend to find out whether to create or whatever the book
-    navigate(`/books/create?isbn=${data.codeResult.code}`);
+  const handleData = function (data: QuaggaJSResultObject): void {
+    if (data.codeResult.code) {
+      // TODO query backend to find out whether to create or whatever the book
+      navigate(`/books/create?isbn=${data.codeResult.code}`);
+    }
   };
 
   return (

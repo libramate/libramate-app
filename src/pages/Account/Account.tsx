@@ -1,3 +1,3 @@
-export default function Account() {
+export default function Account(): JSX.Element {
   return <>Account</>;
 }

@@ -7,11 +7,28 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: ["tsconfig.json"],
+    project: ["./tsconfig.json"],
     sourceType: "module",
   },
   ignorePatterns: ["/lib/**/*", "**/*.html"],
   plugins: ["@typescript-eslint", "simple-import-sort"],
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"], // Your TypeScript files extension
+
+      // As mentioned in the comments, you should extend TypeScript plugins here,
+      // instead of extending them outside the `overrides`.
+      // If you don't want to extend any rules, you don't need an `extends` attribute.
+      extends: [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+
+      parserOptions: {
+        project: ["./tsconfig.json"], // Specify it only for TypeScript files
+      },
+    },
+  ],
   rules: {
     "no-restricted-syntax": [
       "warn",
@@ -54,10 +71,10 @@ module.exports = {
       "error",
       {
         arrowParameter: true,
-        variableDeclaration: true,
+        variableDeclaration: false,
       },
     ],
-    "@typescript-eslint/array-type": ["warn", { default: "generic" }],
+    "@typescript-eslint/array-type": ["warn", { default: "array" }],
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-misused-new": "warn",
@@ -97,7 +114,8 @@ module.exports = {
     "@typescript-eslint/quotes": ["warn", "double"],
     "@typescript-eslint/semi": ["warn", "always"],
     "arrow-body-style": "warn",
-    "comma-dangle": "warn",
+    "comma-dangle": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
     complexity: [
       "warn",
       {

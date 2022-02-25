@@ -3,7 +3,7 @@ import BookCard from "./BookCard";
 import "./Library.scss";
 
 export default function Library(): JSX.Element {
-  const booklist: Array<JSX.Element> = [
+  const booklist: JSX.Element[] = [
     <BookCard
       title="Kommunistisches Manifest der siebenundvierzigsten Generation des Abendlandes"
       author="Karl Marxsdf sdflkjdsf klösdjflköjsfd "

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../../public/logo";
 import "./Splash.scss";
 
-export default function Splash() {
+export default function Splash(): JSX.Element {
   const navigate = useNavigate();
 
   return (
@@ -25,7 +25,7 @@ export default function Splash() {
         <h1>Log In</h1>
         <button
           className="btn-server btn-main-server"
-          onClick={() => navigate("/login")}
+          onClick={(): void => navigate("/login")}
         >
           Use libramate.de
         </button>
