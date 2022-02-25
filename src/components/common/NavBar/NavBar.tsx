@@ -8,7 +8,6 @@ import {
   Settings24Filled,
   Settings24Regular,
 } from "@fluentui/react-icons";
-import { ReactElement } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.scss";
 
@@ -23,7 +22,7 @@ function IconButton(props: IconButtonProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let icon: ReactElement;
+  let icon: React.ReactElement;
   if (location.pathname.startsWith(`/${props.link}`)) {
     icon = props.iconActive;
   } else {

@@ -55,8 +55,12 @@ export default function BookCard(props: propsBookCard) {
   }
 
   return (
-    <div className="book-card">
-      <div id="img"></div>
+    <div className="book-card book-card-loading">
+      {/* <img
+        className="lib-cover-img"
+        src="https://images.pexels.com/photos/11143102/pexels-photo-11143102.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+      /> */}
+      <div className="lib-cover-img"></div>
       {lentOverlay}
       <div className="book-card-data-overlay">
         <p className="lib-author-name">{props.author}</p>

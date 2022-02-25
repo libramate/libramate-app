@@ -1,0 +1,11 @@
+@use "../abstracts/constants";
+
+.icon-button {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-bg-elevation-1);
+  border-radius: constants.$border-radius;
+  border: 1px solid var(--color-border);
+}

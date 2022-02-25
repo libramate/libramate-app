@@ -33,9 +33,10 @@
   }
 }
 
-#img {
-  background-color: red;
+.lib-cover-img {
+  // background-color: var(--color-bg-elevation-1);
   height: 100%;
+  object-fit: cover;
 }
 
 .lib-lent-overlay {

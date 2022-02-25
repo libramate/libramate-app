@@ -1,6 +1,6 @@
-import { Filter24Regular, Person24Regular } from "@fluentui/react-icons";
+import FilterBar from "../../components/common/FilterBar/FilterBar";
 import BookCard from "./BookCard";
-import "./library.scss";
+import "./Library.scss";
 
 export default function Library() {
   let booklist = [
@@ -69,19 +69,12 @@ export default function Library() {
       new={true}
     />,
   ];
+
   return (
     <div id="library">
       <h1>My Library</h1>
       {/* TODO: List and dynamic updates */}
-      <div id="library-filter-bar">
-        <button>
-          <Person24Regular />
-        </button>
-        <input type="search" placeholder="Search" />
-        <button>
-          <Filter24Regular />
-        </button>
-      </div>
+      <FilterBar idPrefix="library" />
       <div id="library-booklist">{booklist}</div>
     </div>
   );

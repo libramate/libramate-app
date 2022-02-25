@@ -7,11 +7,11 @@ import Account from "./pages/Account/Account";
 import Authentificating from "./pages/Auth/Authentificating";
 import ChooseAuthProvider from "./pages/Auth/ChooseAuthProvider";
 import Splash from "./pages/Auth/Splash";
-import BookDetails from "./pages/Books/BookDetails";
+import BookDetails from "./pages/Books/BookDetails/BookDetails";
 import CreateBook from "./pages/Books/CreateBook";
 import LendBook from "./pages/Books/LendBook";
 import ReturnBook from "./pages/Books/ReturnBook";
-import Library from "./pages/Library/library";
+import Library from "./pages/Library/Library";
 import BarcodeScanner from "./pages/Scanner/ScannerComponent";
 import Settings from "./pages/Settings/Settings";
 import AuthAccessDenied from "./pages/Errors/AuthAccessDenied";
@@ -57,19 +57,19 @@ export default function App() {
               element={<NavlessSite element={<AuthAccessDenied />} />}
             />
             <Route
-              path="/books/create"
+              path="/book/create"
               element={<NavlessSite element={<CreateBook />} />}
             />
             <Route
-              path="/books/lend"
+              path="/book/lend"
               element={<NavlessSite element={<LendBook />} />}
             />
             <Route
-              path="/books/return"
+              path="/book/return"
               element={<NavlessSite element={<ReturnBook />} />}
             />
             <Route
-              path="/books"
+              path="/book"
               element={<NavlessSite element={<BookDetails />} />}
             />
             <Route
