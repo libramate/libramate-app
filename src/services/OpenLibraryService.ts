@@ -9,8 +9,10 @@ interface Book {
 
 const OpenLibraryService = {
   getBook: async function (isbn: string): Promise<Book> {
-    const response: Response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
-    const book: Book = await response.json() as Book;
+    const response: Response = await fetch(
+      `https://openlibrary.org/isbn/${isbn}.json`
+    );
+    const book: Book = (await response.json()) as Book;
     const authors: (Promise<Author> | Author)[] = [];
 
     for (const author of book.authors) {
