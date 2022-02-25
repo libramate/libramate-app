@@ -1,0 +1,5 @@
+src/zone-flags.ts
+e2e/*
+electron/node_modules
+node_modules/
+www/
