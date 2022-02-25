@@ -8,18 +8,19 @@ interface Book {
 }
 
 const OpenLibraryService = {
-  getBook: function (isbn: string): Promise<Book> {
-    return fetch(`https://openlibrary.org/isbn/${isbn}.json`)
-      .then((response) => response.json())
-      .then(async (response: Book) => {
-        const authors: (Promise<Author> | Author)[] = [];
-        response.authors.forEach((author) =>
-          authors.push(this.getAuthor(author.key))
-        );
-        await Promise.all(authors);
-        //response.resolvedAuthors = authors;
-        return response;
-      });
+  getBook: async function (isbn: string): Promise<Book> {
+    const response: Response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
+    const book: Book = await response.json() as Book;
+    const authors: (Promise<Author> | Author)[] = [];
+
+    for (const author of book.authors) {
+      authors.push(this.getAuthor(author.key));
+    }
+
+    await Promise.all(authors);
+    book.resolvedAuthors = authors as Author[];
+
+    return book;
   },
 
   getAuthor: function (author: string): Promise<Author> {
