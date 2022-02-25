@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Loading from "../../components/common/Loading/Loading";
 
 export default function Authentificating() {
@@ -11,7 +11,7 @@ export default function Authentificating() {
 
   useEffect(() => {
     if (error) {
-      navigate("/auth/accessDenied");
+      return navigate("/auth/accessDenied");
     }
     setTimeout(() => {
       navigate("/library");
