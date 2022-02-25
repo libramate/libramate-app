@@ -5,7 +5,7 @@ interface propsBookDetails {
   // bookTitle: String;
 }
 
-export default function BookDetails(props: propsBookDetails) {
+export default function BookDetails(props: propsBookDetails): JSX.Element {
   return (
     <div id="book-details">
       <div id="details-title-bar">

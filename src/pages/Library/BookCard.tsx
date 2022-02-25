@@ -14,7 +14,7 @@ interface propsBookCard {
   imageUrl?: string;
 }
 
-export default function BookCard(props: propsBookCard) {
+export default function BookCard(props: propsBookCard): JSX.Element {
   let lentOverlay: ReactElement | null = null;
   let ltOverlay: ReactElement | null = null;
   let rtOverlay: ReactElement | null = null;

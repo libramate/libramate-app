@@ -8,7 +8,7 @@ import {
   Settings24Filled,
   Settings24Regular,
 } from "@fluentui/react-icons";
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.scss";
 
 interface IconButtonProps {
@@ -18,12 +18,12 @@ interface IconButtonProps {
   link: string;
 }
 
-function IconButton(props: IconButtonProps) {
-  const navigate = useNavigate();
-  const location = useLocation();
+function IconButton(props: IconButtonProps): JSX.Element {
+  const navigate: NavigateFunction = useNavigate();
+  const location: Partial<Location> = useLocation();
 
   let icon: React.ReactElement;
-  if (location.pathname.startsWith(`/${props.link}`)) {
+  if (location.pathname!.startsWith(`/${props.link}`)) {
     icon = props.iconActive;
   } else {
     icon = props.icon;
@@ -31,7 +31,7 @@ function IconButton(props: IconButtonProps) {
   return (
     <button
       className="btn-icon btn-link"
-      onClick={() => navigate(`/${props.link}`)}
+      onClick={(): void => navigate(`/${props.link}`)}
     >
       {icon}
       <span>{props.label}</span>
@@ -39,10 +39,13 @@ function IconButton(props: IconButtonProps) {
   );
 }
 
-function ScanButton() {
-  const navigate = useNavigate();
+function ScanButton(): JSX.Element {
+  const navigate: NavigateFunction = useNavigate();
   return (
-    <button className="btn-link btn-scan" onClick={() => navigate("/scan")}>
+    <button
+      className="btn-link btn-scan"
+      onClick={(): void => navigate("/scan")}
+    >
       <div className="btn-scan-circle">
         <BarcodeScanner24Filled color="var(--color-accent-font)" />
       </div>
@@ -51,12 +54,12 @@ function ScanButton() {
   );
 }
 
-function ProfileButton() {
-  const navigate = useNavigate();
+function ProfileButton(): JSX.Element {
+  const navigate: NavigateFunction = useNavigate();
   return (
     <button
       className="btn-link btn-profile"
-      onClick={() => navigate("/profile")}
+      onClick={(): void => navigate("/profile")}
     >
       <Person24Regular />
       <span>{"Profile"}</span>
@@ -64,7 +67,7 @@ function ProfileButton() {
   );
 }
 
-export default function NavBar() {
+export default function NavBar(): JSX.Element {
   return (
     <nav id="navbar">
       <IconButton
