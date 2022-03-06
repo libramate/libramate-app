@@ -5,9 +5,11 @@ import Quagga, {
 import { ReactElement, useEffect, useRef, useState } from "react";
 import { NoPermissionsModal } from "./NoPermissionsModal";
 import "./Scanner.scss";
+import ScannerControls from "./ScannerControls";
 
 const frequency = 30;
 const lineWidth = 2;
+const constraintMultiplier = 0.8;
 
 const Scanner = ({
   onUpdate,
@@ -22,11 +24,15 @@ const Scanner = ({
   const quaggaConfig = {
     inputStream: {
       constraints: {
-        height: window.innerHeight * 0.8 * window.devicePixelRatio,
+        height:
+          window.innerHeight * constraintMultiplier * window.devicePixelRatio,
         width: window.innerWidth * window.devicePixelRatio,
         facingMode: frontCamera ? "user" : "environment",
         focusMode: "continuous",
-        aspectRatio: { ideal: (window.innerHeight * 0.8) / window.innerWidth },
+        aspectRatio: {
+          ideal:
+            (window.innerHeight * constraintMultiplier) / window.innerWidth,
+        },
       },
       target: "#scanner",
     },
@@ -99,8 +105,23 @@ const Scanner = ({
         </>
       ) : (
         <>
-          <div id="passepartout"></div>
           <div id={"scanner"} ref={ref} />
+          <ScannerControls
+            switchCamera={(): void => {
+              setFrontCamera(!frontCamera);
+            }}
+            switchTorch={(): void => {
+              const track = Quagga.CameraAccess.getActiveTrack();
+              if (track && typeof track.getCapabilities === "function") {
+                void track.applyConstraints({
+                  advanced: [
+                    { torch: !torchEnabled } as MediaTrackConstraintSet,
+                  ],
+                });
+                setTorchEnabled(!torchEnabled);
+              }
+            }}
+          />
         </>
       )}
     </>

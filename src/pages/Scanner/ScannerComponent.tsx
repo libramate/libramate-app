@@ -7,7 +7,6 @@ export default function BarcodeScanner(): JSX.Element {
   const navigate = useNavigate();
   const eanCount: Record<string, number> = {};
   const active = true;
-  const unknownLimit = 10;
 
   const handleData = function (data: QuaggaJSResultObject): void {
     if (data.codeResult.code) {
@@ -19,7 +18,6 @@ export default function BarcodeScanner(): JSX.Element {
   return (
     <div id="scanner-component">
       <Scanner onUpdate={handleData} />
-      <ScannerControls />
     </div>
   );
 }

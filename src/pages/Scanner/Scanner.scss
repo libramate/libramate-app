@@ -33,25 +33,20 @@
   width: 100%;
 }
 
-#passepartout {
-  $width: 200px;
-  $height: 75px;
-
-  box-sizing: content-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-style: solid;
-  border-color: rgba(#ffffff, 0.5);
-  border-width: calc(100vh / 3 - $height/2) calc(50vw - $width/2)
-    calc(200vh / 3 - $height/2);
-  width: $width;
-  height: $height;
-}
-
 #btn-back {
   position: absolute;
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+#ctrl-bottom {
+  width: 100%;
+  background-color: var(--color-bg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
