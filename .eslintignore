@@ -4,3 +4,6 @@ electron/node_modules
 node_modules/
 www/
 .eslintrc.js
+tailwind.config.js
+next.config.js
+postcss.config.js

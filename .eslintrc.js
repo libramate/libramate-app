@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 module.exports = {
+  extends: "next/core-web-vitals",
   env: {
     browser: true,
     es6: true,
@@ -70,7 +71,7 @@ module.exports = {
     "@typescript-eslint/typedef": [
       "error",
       {
-        arrowParameter: true,
+        arrowParameter: false,
         variableDeclaration: false,
       },
     ],

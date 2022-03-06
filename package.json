@@ -1,14 +1,14 @@
 {
-  "name": "libramate-app",
+  "name": "libra-mate-app",
   "version": "0.0.1",
   "description": "",
-  "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel",
-    "build": "tsc --noEmit && parcel build",
-    "lint": "eslint ./src"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -24,28 +24,25 @@
   },
   "homepage": "https://libramate.de",
   "dependencies": {
-    "@ericblade/quagga2": "^1.4.2",
-    "react": "^17.0.2",
-    "react-device-detect": "^2.1.2",
-    "react-dom": "^17.0.2",
-    "react-jwt": "^1.1.4",
-    "react-router-dom": "^6.2.1"
+    "@fluentui/react-icons": "^2.0.153-canary.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "classnames": "^2.3.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "next": "12.1.0",
+    "next-auth": "^4.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.49.9"
   },
   "devDependencies": {
-    "@fluentui/react-icons": "^2.0.153-canary.0",
-    "@parcel/transformer-sass": "^2.3.0",
-    "@parcel/transformer-svg-react": "^2.2.1",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/eslint-plugin-tslint": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint": "^8.9.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-prefer-arrow": "^1.2.3",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "parcel": "^2.2.1",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.5"
+    "@types/node": "17.0.21",
+    "@types/react": "17.0.39",
+    "autoprefixer": "^10.4.2",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "postcss": "^8.4.7",
+    "tailwindcss": "^3.0.23",
+    "typescript": "4.6.2"
   }
 }
