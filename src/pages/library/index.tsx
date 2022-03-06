@@ -20,7 +20,7 @@ const Library: FC = () => {
   return (
     <>
       <SessionValidator />
-      <CustomHead />
+      <CustomHead title="Library" />
 
       <NavLayout className="py-12 px-8">
         <h1 className="mb-6 text-4xl font-bold">Library</h1>
