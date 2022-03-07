@@ -24,7 +24,7 @@ const BookCard: FC<BookCardProps> = ({
   lentDate,
   lentPerson,
 }) => (
-  <div className="bg-e-1 rounded-lg overflow-clip border border-border shadow-elevation-1 flex flex-col relative z-0">
+  <button className="bg-e-1 rounded-lg overflow-clip border border-border shadow-elevation-1 flex flex-col relative z-0 text-left">
     {/* <img
         className="lib-cover-img"
         src="https://images.pexels.com/photos/11143102/pexels-photo-11143102.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
@@ -42,7 +42,7 @@ const BookCard: FC<BookCardProps> = ({
     </div>
     <LeftTopOverlay {...{ favorite, recent }} />
     <RightTopOverlay amount={amount} />
-  </div>
+  </button>
 );
 
 export default BookCard;

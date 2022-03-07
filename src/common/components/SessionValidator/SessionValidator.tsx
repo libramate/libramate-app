@@ -1,16 +1,17 @@
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../firebase/firebase";
 
 const SessionValidator: FC = () => {
   const router = useRouter();
+  const [user] = useAuthState(auth);
 
-  useSession({
-    required: true,
-    onUnauthenticated() {
+  useEffect(() => {
+    if (!user) {
       void router.push("/");
-    },
-  });
+    }
+  }, [user]);
 
   return <></>;
 };

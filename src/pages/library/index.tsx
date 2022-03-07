@@ -1,5 +1,4 @@
-import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import FilterBar from "../../common/components/FilterBar/FilterBar";
 import CustomHead from "../../common/components/Head/Head";
 import { NavLayout } from "../../common/components/layout/Layout";
@@ -9,7 +8,6 @@ import Book from "../../common/types/Book";
 import BookCard from "../../common/components/BookCard/BookCard";
 
 const Library: FC = () => {
-  const router = useRouter();
   const [books, setBooks] = useState<Book[]>();
 
   const fetchData = (): Promise<Book[]> =>

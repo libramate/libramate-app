@@ -1,8 +1,15 @@
-import { GetServerSideProps, NextPage } from "next";
-import { getProviders, signIn } from "next-auth/react";
+import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import CustomHead from "../../common/components/Head/Head";
+import {
+  AuthProvider,
+  GithubAuthProvider,
+  signInWithRedirect,
+} from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../../common/components/Loading/Loading";
 
 type LoginButtonProps = {
   onClick: () => void;
@@ -18,29 +25,23 @@ const LoginButton: FC<LoginButtonProps> = ({ onClick, children }) => (
   </button>
 );
 
-type AuthProviderButtonProps = { name: string; id: string };
-
-const AuthProviderButton: FC<AuthProviderButtonProps> = ({ name, id }) => {
-  const router = useRouter();
-  let { callbackUrl } = router.query;
-  if (!callbackUrl) {
-    callbackUrl = "https://libramate.de/";
-  } else if (typeof callbackUrl !== "string") {
-    callbackUrl = callbackUrl[0];
-  }
-
-  return (
-    <LoginButton
-      onClick={(): void => {
-        void signIn(id, {
-          callbackUrl: `${callbackUrl as string}library`,
-        });
-      }}
-    >
-      <span className="ml-4">{name}</span>
-    </LoginButton>
-  );
+type AuthProviderButtonProps = {
+  name: string;
+  provider: AuthProvider;
 };
+
+const AuthProviderButton: FC<AuthProviderButtonProps> = ({
+  name,
+  provider,
+}) => (
+  <LoginButton
+    onClick={(): void => {
+      void signInWithRedirect(auth, provider);
+    }}
+  >
+    <span className="">{name}</span>
+  </LoginButton>
+);
 
 const BackButton: FC = () => {
   const router = useRouter();
@@ -55,30 +56,35 @@ const BackButton: FC = () => {
   );
 };
 
-const SignIn: NextPage<{ providers: { name: string; id: string }[] }> = ({
-  providers,
-}) => (
-  <>
-    <CustomHead title="Login" />
-    <main className="text-center h-full">
-      <h1 className="text-4xl font-bold m-0 pt-20 pb-8 px-8 border-b-border shadow-elevation-2 bg-e-1">
-        Choose Authentication Provider
-      </h1>
-      <div className="px-8 mt-16 w-full grid auto-rows-[5rem] overflow-auto">
-        {Object.values(providers).map((provider) => (
-          <AuthProviderButton key={provider.id} {...provider} />
-        ))}
-        <BackButton />
-      </div>
-    </main>
-  </>
-);
+const SignIn: NextPage = () => {
+  const router = useRouter();
+  const [user, loading] = useAuthState(auth);
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const providers = await getProviders();
-  return {
-    props: { providers },
-  };
+  useEffect(() => {
+    if (user) {
+      void router.push("/library");
+    }
+  }, [user, router]);
+
+  return loading ? (
+    <Loading />
+  ) : (
+    <>
+      <CustomHead title="Login" />
+      <main className="text-center h-full">
+        <h1 className="text-4xl font-bold m-0 pt-20 pb-8 px-8 border-b-border shadow-elevation-2 bg-e-1">
+          Choose Authentication Provider
+        </h1>
+        <div className="px-8 mt-16 w-full grid auto-rows-[5rem] overflow-auto">
+          <AuthProviderButton
+            name="GitHub"
+            provider={new GithubAuthProvider()}
+          />
+          <BackButton />
+        </div>
+      </main>
+    </>
+  );
 };
 
 export default SignIn;
