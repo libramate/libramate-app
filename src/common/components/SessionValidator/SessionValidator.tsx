@@ -5,13 +5,13 @@ import { auth } from "../../../firebase/firebase";
 
 const SessionValidator: FC = () => {
   const router = useRouter();
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    if (!user) {
+    if (!loading && !user) {
       void router.push("/");
     }
-  }, [user]);
+  }, [user, loading, router]);
 
   return <></>;
 };
