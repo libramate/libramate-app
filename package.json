@@ -1,0 +1,57 @@
+{
+  "name": "libra-mate-app",
+  "version": "0.0.1",
+  "description": "",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libramate/libramate-app.git"
+  },
+  "keywords": [
+    "pwa"
+  ],
+  "author": "Libramate <contact@libramate.de>",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/libramate/libramate-app/issues"
+  },
+  "homepage": "https://libramate.de",
+  "dependencies": {
+    "@ericblade/quagga2": "1.5.0",
+    "@fluentui/react-icons": "2.0.153-canary.0",
+    "@tailwindcss/line-clamp": "0.3.1",
+    "@typescript-eslint/eslint-plugin": "5.13.0",
+    "classnames": "2.3.1",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "firebase": "9.6.8",
+    "firebase-admin": "10.0.2",
+    "isbn-validate": "1.0.3",
+    "next": "12.1.0",
+    "next-firebase-auth": "1.0.0-canary.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-firebase-hooks": "5.0.3",
+    "react-firebaseui": "6.0.0",
+    "sass": "1.49.9"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.21",
+    "@types/react": "17.0.39",
+    "autoprefixer": "10.4.2",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0",
+    "postcss": "8.4.7",
+    "tailwindcss": "3.0.23",
+    "typescript": "4.6.2"
+  },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "12.1.0"
+  }
+}
