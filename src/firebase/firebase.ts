@@ -30,24 +30,22 @@ function createFirebaseApp(config: FirebaseOptions): FirebaseApp {
 }
 
 const firebaseApp = createFirebaseApp(firebaseConfig);
-
 // Auth exports
 export const auth = getAuth(firebaseApp);
-if (!process.env.VERCEL_ENV) {
+if (process.env.NEXT_PUBLIC_FIREBASE_EMULATORS) {
   connectAuthEmulator(auth, "http://localhost:9099");
 }
 
-// export const googleAuthProvider = new GoogleAuthProvider();
 export const githubProvider = new GithubAuthProvider();
 
 // Firestore exports
 export const firestore = getFirestore(firebaseApp);
-if (!process.env.VERCEL_ENV) {
+if (process.env.NEXT_PUBLIC_FIREBASE_EMULATORS) {
   connectFirestoreEmulator(firestore, "localhost", 8080);
 }
 
 // Storage exports
 export const storage = getStorage(firebaseApp);
-if (!process.env.VERCEL_ENV) {
+if (process.env.NEXT_PUBLIC_FIREBASE_EMULATORS) {
   connectStorageEmulator(storage, "localhost", 9199);
 }
